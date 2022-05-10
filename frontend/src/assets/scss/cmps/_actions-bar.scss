@@ -1,0 +1,31 @@
+.actions-bar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    button{
+        border-radius: 7px;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.336);
+        padding: 5px 10px 5px 10px;
+        transition: 0.2s;
+
+        &:hover{
+            background-color:rgba(228, 228, 228, 0.589)
+        }
+
+        &:active{background-color: rgb(150, 148, 148);}
+    }
+    label{
+        margin:10px;
+
+        select{
+            margin: 0px 10px 0 10px;
+        }
+    }
+}
+
+.blocked{
+    cursor: not-allowed;
+}

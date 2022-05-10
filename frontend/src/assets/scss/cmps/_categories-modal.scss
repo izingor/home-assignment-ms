@@ -1,0 +1,37 @@
+.categories-modal {
+    width: 400px;
+    height: 100px;
+    background-color: rgb(247, 247, 247);
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.274);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+
+    span {
+        text-transform: capitalize;
+
+    }
+
+    button {
+        border: none;
+        background: none;
+        transition: 0.1s;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-weight: bold;
+
+        &:hover {
+            transform: scale(1.2)
+        }
+    }
+
+
+}
+
