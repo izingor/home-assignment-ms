@@ -16,6 +16,7 @@ export const PhotoApp = () => {
 
 	useEffect(() => {
 		dispatch(loadPhotos());
+
 	},[]);
 
 	const onPhotoClicked = (id) => {
@@ -34,7 +35,7 @@ export const PhotoApp = () => {
 
 	//On page change the function checking if there are photos on the next page, or it's on the first page.
 	const onPageChanged = (pageDirection) => {
-		if (!photos.nextPage.length && pageDirection > 0) return;
+		if (!photos.nextPage && pageDirection > 0) return;
 		if (!filterBy.page && pageDirection < 0) return;
 
 		const newFilter = { ...filterBy };
@@ -67,10 +68,9 @@ export const PhotoApp = () => {
 				onPageChanged={onPageChanged}
 				onCategoriesMenu={onCategoriesMenu}
 				onSortChanged={onSortChanged}
-				nextPage={photos.nextPage?.length}
+				nextPage={photos.nextPage}
 				currPage={filterBy.page}
 			/>
-
 			<PhotoList photos={photos.currPage} onPhotoClicked={onPhotoClicked} />
 			{detailsModal && (
 				<PhotoDetailsModal

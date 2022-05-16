@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 
 const categories = [
@@ -27,13 +27,12 @@ async function query(queryParams) {
     const sortBy = queryParams.sortBy;
     const order = queryParams.order === 'desc' ? -1 : 1;
     const currPageIdx = queryParams.page * PAGE_SIZE;
-    const nextPageIdx = (queryParams.page + 1) * PAGE_SIZE;
 
     try {
         const res = await axios.get(`http://pixabay.com/api/?key=25540812-faf2b76d586c1787d2dd02736&q=${queryParams.category}`);
         //Sending back current page and next page in order to norify the frontend if it can move to the next page
         photos.currPage = res.data.hits.slice(currPageIdx, currPageIdx + PAGE_SIZE);
-        photos.nextPage = res.data.hits.slice(nextPageIdx, nextPageIdx + PAGE_SIZE);
+        photos.nextPage = res.data.hits.slice(currPageIdx + PAGE_SIZE).length;
         photos.currPage.sort((a, b) => (a[sortBy] - b[sortBy]) * (order));
         return photos;
 
